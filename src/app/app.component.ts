@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
@@ -16,16 +17,37 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      title: 'Faça seu pedido',
+      url: '/instrucoes',
+      icon: 'checkmark-circle-outline'
+    },
+    {
+      title: 'Agenda',
+      url: '/agenda',
+      icon: 'calendar'
+    },
+    {
+      title: 'Promoções',
+      url: '/promocoes',
+      icon: 'star'
+    },
+    {
+      title: 'Cardápio',
+      url: '/cardapio',
+      icon: 'beer'
+    },
+    {
+      title: 'Contato',
+      url: '/contato',
+      icon: 'logo-whatsapp'
     }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+
   ) {
     this.initializeApp();
   }

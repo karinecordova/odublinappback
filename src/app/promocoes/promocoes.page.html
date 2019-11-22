@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>O'Dublin Beer Pub - Promoções</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+    <img src="../assets/imagens/logo.png" class="logo">
+    <ion-card *ngFor="let promocao of result">
+      <ion-img src="http://weblages.com.br/neri/odublin/imagens/promocao/{{promocao.imagem}}"></ion-img>
+        <ion-card-header>          
+          <ion-card-title>{{ promocao.nome }}</ion-card-title>
+         
+        </ion-card-header>
+      
+        <ion-card-content>
+            {{ promocao.descricao }}
+        </ion-card-content>
+      </ion-card>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab-button  href="instrucoes">
+              <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+      <ion-grid>
+          <ion-row>
+            <ion-col col-12>
+                R. Emíliano Ramos, 235 - Centro, Lages - SC <br> 
+                (49) 99805-6222
+            </ion-col>
+          </ion-row>
+         
+        </ion-grid>
+        
+     
+</ion-content>

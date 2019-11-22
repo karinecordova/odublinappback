@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>O'Dublin Beer Pub - Porções</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+    <ion-card *ngFor="let produto of result">
+        <ion-card-header>
+          <ion-card-title>{{ produto.nome_produto }}</ion-card-title>         
+        </ion-card-header>      
+        <ion-card-content>
+            {{ produto.descricao }} -  {{ produto.tamanho }}
+            <br> Valor R$ {{ produto.valor }}
+        </ion-card-content>
+      </ion-card>
+      <ion-button expand="full" href="cardapio">
+          <ion-icon slot="end"  name="list"></ion-icon>
+          Voltar para o Cardápio
+        </ion-button>
+      <ion-grid>
+          <ion-row>
+            <ion-col col-12>
+                R. Emíliano Ramos, 235 - Centro, Lages - SC <br> 
+                (49) 99805-6222
+            </ion-col>
+          </ion-row>
+         
+        </ion-grid>
+</ion-content>

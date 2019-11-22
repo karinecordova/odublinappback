@@ -4,24 +4,111 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+        O'Dublin Beer Pub - Faça seu pedido
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+<ion-content color="light">
+    <img src="../assets/imagens/logo.png" class="logo" href="home"> 
+   
+    <ion-card  *ngFor="let item of items">
+        <ion-card-header>
+          <ion-grid>
+              <ion-row>
+                  <ion-col size="9">
+                      <ion-card-title>{{item.name}}</ion-card-title>     
+                  </ion-col>
+                  <ion-col size="3">
+                      <ion-button (click)="expandItem(item)">
+                          <ion-icon slot="icon-only"  name="arrow-dropdown"></ion-icon>
+                      </ion-button>
+                  </ion-col>
+                  
+                </ion-row>
+          </ion-grid>
+                        
+               
+           
+        </ion-card-header>
+        <ion-card-content>         
+            <app-expandable expandHeight="auto" [expanded]="item.expanded">
+              <ion-list *ngIf="item.id==1">
+              <ion-item *ngFor="let porcoes of result">                     
+                <ion-checkbox  (ionChange)="produtoEscolhido($event,porcoes)"></ion-checkbox> 
+                  <ion-label> {{ porcoes.nome_produto}} - {{ porcoes.tamanho }}</ion-label> 
+                  &nbsp; QNT: <ion-input type="text" [(ngModel)]="porcoes.quantidade"></ion-input>
+                 
+                </ion-item>
+                       
+             </ion-list>
+             
+             <ion-list *ngIf="item.id==2">
+              <ion-item *ngFor="let refrigerantes of result2">
+              <ion-checkbox (ionChange)="produtoEscolhido($event,refrigerantes)"></ion-checkbox>
+                <ion-label> {{ refrigerantes.nome_produto}} - {{ refrigerantes.tamanho}} </ion-label>
+                &nbsp; QNT: <ion-input type="text"  [(ngModel)]="refrigerantes.quantidade"></ion-input>
+                                 
+              </ion-item> 
+              </ion-list>
+
+           <ion-list *ngIf="item.id==3">
+            <ion-item *ngFor="let sucos of result3">
+              <ion-checkbox (ionChange)="produtoEscolhido($event,sucos)"></ion-checkbox> 
+              <ion-label > {{ sucos.nome_produto}} - {{ sucos.tamanho}}</ion-label>     
+              &nbsp; QNT: <ion-input type="text" [(ngModel)]="sucos.quantidade"></ion-input>           
+            </ion-item>
+         </ion-list>
+
+             <ion-list *ngIf="item.id==4">
+                <ion-item *ngFor="let cervejas of result4">
+                <ion-checkbox (ionChange)="produtoEscolhido($event,cervejas)"></ion-checkbox>
+                 <ion-label> {{ cervejas.nome_produto}} - {{ cervejas.tamanho}}</ion-label> 
+                 &nbsp; QNT: <ion-input type="text" [(ngModel)]="cervejas.quantidade"></ion-input>                  
+            </ion-item>
+          </ion-list>
+            <ion-list *ngIf="item.id==5">              
+                <ion-item *ngFor="let destilados of result5">
+                <ion-checkbox (ionChange)="produtoEscolhido($event,destilados)"></ion-checkbox>
+                <ion-label> {{ destilados.nome_produto}} - {{ destilados.tamanho}}</ion-label>
+                &nbsp; QNT: <ion-input type="text" [(ngModel)]="destilados.quantidade"></ion-input>
+                
+           </ion-item>
+          </ion-list>
+           <ion-list *ngIf="item.id==6">
+              <ion-item *ngFor="let drinks of result6">
+              <ion-checkbox (ionChange)="produtoEscolhido($event,drinks)"></ion-checkbox>
+              <ion-label> {{ drinks.nome_produto}} - {{ drinks.tamanho}}</ion-label>
+              &nbsp; QNT: <ion-input type="text" [(ngModel)]="drinks.quantidade"></ion-input>
+            
+         </ion-item>
+         </ion-list> 
+          </app-expandable>
+        </ion-card-content>
+      </ion-card>
+       
+      <ion-item>
+          <ion-textarea placeholder="Coloque se necessário, alguma observação sobre seu pedido aqui..." name="obs" [(ngModel)]="obs"></ion-textarea>
+      </ion-item>
+        
+     
+      <ion-button expand="full"  (click)="submit()">
+        <ion-icon slot="end"  name="cart"></ion-icon>
+        Enviar Pedido
+      </ion-button>
+      <ion-button expand="full" href="home" color="danger">
+          <ion-icon slot="end"  name="trash"></ion-icon>
+         Cancelar
+        </ion-button>
+      <ion-grid>
+          <ion-row>
+            <ion-col col-12 class="rodape">
+                R. Emíliano Ramos, 235 - Centro, Lages - SC <br> 
+                (49) 99805-6222
+            </ion-col>
+          </ion-row>
+         
+        </ion-grid>
+  
+
 </ion-content>

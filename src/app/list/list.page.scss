@@ -1,1 +1,50 @@
 
+ion-checkbox{
+    margin-right:5px;
+}
+@import url('https://fonts.googleapis.com/css?family=Lobster|Oswald');
+    
+.logo{
+ width:150px;
+ margin:0 auto;
+ display:block;
+}
+ion-card-title{
+font-family: 'Lobster', cursive;
+text-align: center;
+color: #000;
+margin-top:10px;
+font-size: 18pt;
+}
+
+ion-card{
+  text-align: center;
+  background: #fff;
+  }
+
+.rodape{
+   background: #006e34;
+   color:#fff;
+   text-align: center;
+}
+
+ion-input{
+  width:50px;
+}
+ion-item{
+  font-size: 14px;
+  transition: 0.2s linear;
+}
+
+.teste{
+ // margin-bottom:10px;
+  margin: auto;
+  display: block;
+}
+
+ ion-col{
+  --background: #fff !important;
+}
+ion-list{
+  margin-bottom: 10px;
+}
